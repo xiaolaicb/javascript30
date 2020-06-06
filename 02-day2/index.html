@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时钟</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="clock">
+        <div class="clock-face">
+            <div class="hand hour-hand"></div>
+            <div class="hand min-hand"></div>
+            <div class="hand second-hand"></div>
+        </div>
+    </div>
+<script>
+    const secondHand = document.querySelector('.hour-hand')
+    const minsHand = document.querySelector('.min-hand')
+    const hourHand = document.querySelector('.second-hand')
+
+    function setDate() {
+        const nowDate = new Date();
+
+        const seconds = nowDate.getSeconds();
+        const secondsDeg = (360 / 60 * seconds) + 90;
+        secondHand.style.transform = `rotate(${secondsDeg}deg)`
+
+        const mins = nowDate.getMinutes();
+        const minsDeg = (360 / 60 * mins) + 90;
+        minsHand.style.transform = `rotate(${minsDeg}deg)`;
+
+        const hour = nowDate.getHours();
+        const hourDeg = (360 / 12 * hour) + 90;
+        hourHand.style.transform = `rotate(${hourDeg}deg)`
+    }
+
+    setInterval(setDate, 1000)
+</script>
+</body>
+</html>
