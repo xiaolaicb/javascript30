@@ -74,7 +74,7 @@
             audio.play()  //播放音效
         }
 
-        const keys = Array.from(document.querySelectorAll('.key')); //获取所有按钮元素
+        const keys = document.querySelectorAll('.key'); //获取所有按钮元素
         keys.forEach(key => key.addEventListener('transitionend', removeEventStyle));  //监听过渡时间结束的回调
         window.addEventListener('keydown', playSound)
     </script>
